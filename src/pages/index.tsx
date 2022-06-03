@@ -1,5 +1,5 @@
 import * as React from "react"
-import Header from '../components/header'
+import Layout  from "../components/layout"
 
 const pageStyles = {
   backgroundColor: "#1F2028",
@@ -11,7 +11,7 @@ const pageStyles = {
 const IndexPage = () => {
   return (
     <main style={pageStyles}>
-      <Header />
+      <Layout />
     </main>
   )
 }

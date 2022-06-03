@@ -1,8 +1,8 @@
 import { css } from "styled-components";
 
-import MatterRegularWoff from "@fonts/Matter/Matter-Regular.woff";
-import MatterMediumWoff from "@fonts/Matter/Matter-Medium.woff";
-import MatterSemiBoldWoff from "@fonts/Matter/Matter-SemiBold.woff";
+import MatterRegularWoff from "../fonts/Matter/Matter-Regular.woff";
+import MatterMediumWoff from "../fonts/Matter/Matter-Medium.woff";
+import MatterSemiBoldWoff from "../fonts/Matter/Matter-SemiBold.woff";
 
 const matterNormalWeights = {
   400: MatterRegularWoff,

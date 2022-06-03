@@ -9,7 +9,10 @@ const config: GatsbyConfig = {
   // If you use VSCode you can also use the GraphQL plugin
   // Learn more at: https://gatsby.dev/graphql-typegen
   graphqlTypegen: true,
-  plugins: ["gatsby-plugin-styled-components", {
+  plugins: [
+    "gatsby-plugin-styled-components",
+    "gatsby-plugin-tsconfig-paths",
+    {
     resolve: 'gatsby-plugin-google-analytics',
     options: {
       "trackingId": "G-6Y55KNQWHC"
