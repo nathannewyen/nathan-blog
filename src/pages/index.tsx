@@ -1,19 +1,17 @@
-import * as React from "react"
-import Layout  from "../components/layout"
+import * as React from "react";
+import styled from "styled-components";
+import { Layout } from "@components";
 
-const pageStyles = {
-  backgroundColor: "#1F2028",
-  color: "#fff",
-  padding: 96,
-  fontFamily: "Matter",
-}
+const StyledMainContainer = styled.main`
+  padding: 96px;
+`;
 
 const IndexPage = () => {
   return (
-    <main style={pageStyles}>
+    <StyledMainContainer>
       <Layout />
-    </main>
-  )
-}
+    </StyledMainContainer>
+  );
+};
 
-export default IndexPage
+export default IndexPage;
