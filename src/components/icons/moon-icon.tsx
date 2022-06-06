@@ -9,7 +9,7 @@ const MoonWrapper = styled.div`
   text-align: center;
 `;
 
-function MoonIcon() {
+const MoonIcon = () => {
   return (
     <MoonWrapper>
       <svg
@@ -27,6 +27,6 @@ function MoonIcon() {
       </svg>
     </MoonWrapper>
   );
-}
+};
 
-export { MoonIcon };
+export default MoonIcon;

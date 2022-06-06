@@ -1,5 +1,32 @@
 import { css } from "styled-components";
 
+const button = css`
+  width: 200px;
+  padding: 25px;
+  border: none;
+  border-radius: 40px;
+  background-color: var(--color-white);
+  font-size: var(--fz-lg);
+  font-weight: 500;
+  cursor: pointer;
+  outline: 2px solid var(--color-white);
+  transition: outline-offset 250ms ease;
+  font-family: var(--font-sans);
+
+  &:hover,
+  &:focus,
+  &:active {
+    outline-offset: 0.3rem;
+  }
+`;
+
+const arrowButton = css`
+  cursor: pointer;
+  border: none;
+  background-color: transparent;
+  color: var(--color-white);
+`;
+
 const mixins = {
   flexCenter: css`
     display: flex;
@@ -39,6 +66,9 @@ const mixins = {
       opacity: 0.5;
     }
   `,
+
+  button,
+  arrowButton,
 };
 
 export default mixins;

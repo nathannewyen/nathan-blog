@@ -1,13 +1,16 @@
 import React from "react";
-import { GlobalStyle } from "@styles";
+import { ThemeProvider } from "styled-components";
+import { GlobalStyle, theme } from "@styles";
 import { Header, Hero } from "@components";
 
 const Layout = () => {
   return (
     <div id="root">
-      <GlobalStyle />
-      <Header />
-      <Hero />
+      <ThemeProvider theme={theme}>
+        <GlobalStyle />
+        <Header />
+        <Hero />
+      </ThemeProvider>
     </div>
   );
 };

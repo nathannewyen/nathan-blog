@@ -1,9 +1,9 @@
-import * as React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import { Link } from "gatsby";
+import { motion } from "framer-motion";
 // Icons
-import { MoonIcon } from "./icons/moon-icon";
-import { SunIcon } from "./icons/sun-icon";
+import { SunIcon, MoonIcon } from "./icons";
 
 const Head = styled.div`
   display: flex;
@@ -65,41 +65,31 @@ const Switch = styled.div`
 
 const ToggleWrapper = styled.div`
   margin: 0 10px;
-`;
 
-const Input = styled.input`
-  height: 0;
-  width: 0;
-  visibility: hidden;
-  position: absolute;
-  &:checked + label {
-    background: var(--color-green);
-  }
-  &:checked + label:after {
-    left: calc(100% - 3px);
-    transform: translateX(-100%);
-  }
-`;
+  .switch {
+    width: 55px;
+    height: 25px;
+    background-color: var(--color-lightGray);
+    display: flex;
+    justify-content: flex-start;
+    border-radius: 50px;
+    padding: 0.2rem 0.3rem;
+    cursor: pointer;
 
-const Label = styled.label`
-  cursor: pointer;
-  text-indent: -9999px;
-  width: 45px;
-  height: 25px;
-  background: grey;
-  display: block;
-  border-radius: 100px;
-  position: relative;
-  &:after {
-    @include transition;
-    content: "";
-    position: absolute;
-    top: 3px;
-    left: 3px;
-    width: 19px;
-    height: 19px;
-    background: #fff;
-    border-radius: 100%;
+    &[data-isOn="true"] {
+      background-color: var(--color-lightGreen);
+    }
+  }
+
+  .switch[data-isOn="true"] {
+    justify-content: flex-end;
+  }
+
+  .handle {
+    width: 18px;
+    height: 18px;
+    background-color: white;
+    border-radius: 40px;
   }
 `;
 
@@ -111,6 +101,10 @@ const LINKS = [
 ];
 
 const Header = () => {
+  const [isOn, setIsOn] = useState(false);
+
+  const toggleSwitch = () => setIsOn(!isOn);
+
   return (
     <Head>
       <Logo>Nathan Nguyen</Logo>
@@ -126,13 +120,20 @@ const Header = () => {
       <Switch>
         <SunIcon />
         <ToggleWrapper>
-          <Input type="checkbox" />
-          <Label htmlFor="switch">Toggle</Label>
+          <div className="switch" data-isOn={isOn} onClick={toggleSwitch}>
+            <motion.div className="handle" layout transition={spring} />
+          </div>
         </ToggleWrapper>
         <MoonIcon />
       </Switch>
     </Head>
   );
+};
+
+const spring = {
+  type: "spring",
+  stiffness: 500,
+  damping: 30,
 };
 
 export default Header;

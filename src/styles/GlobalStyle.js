@@ -14,6 +14,23 @@ const GlobalStyle = createGlobalStyle`
         padding: 0;
     }
 
+    /* Scrollbar Styles */
+    html {
+        scrollbar-width: thin;
+        scrollbar-color: var(--dark-slate) var(--navy);
+    }
+    body::-webkit-scrollbar {
+        width: 12px;
+    }
+    body::-webkit-scrollbar-track {
+        background: var(--navy);
+    }
+    body::-webkit-scrollbar-thumb {
+        background-color: var(--dark-slate);
+        border: 3px solid var(--navy);
+        border-radius: 10px;
+    }
+
     body {
         margin: 0;
         width: 100%;
