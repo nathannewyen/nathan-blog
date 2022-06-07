@@ -61,6 +61,11 @@ const GlobalStyle = createGlobalStyle`
         color: inherit;
         position: relative;
     }
+
+    svg,
+    span {
+      vertical-align: middle;
+    }
 `;
 
 export default GlobalStyle;
