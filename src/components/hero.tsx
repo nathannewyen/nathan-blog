@@ -31,6 +31,10 @@ const StyledHero = styled.div`
     position: absolute;
     bottom: 0;
     vertical-align: bottom;
+
+    span {
+      margin-left: 20px;
+    }
   }
 `;
 
@@ -81,8 +85,8 @@ const Hero = () => {
                 />
                 <button className="hero-button">Read the blog</button>
                 <div className="hero-about">
-                  {/* <ArrowButton /> */}
-                  {about}
+                  <ArrowButton />
+                  <span className="text">{about}</span>
                 </div>
               </StyledHero>
               <div>

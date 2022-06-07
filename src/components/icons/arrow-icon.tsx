@@ -14,21 +14,22 @@ export const rotationMap = {
   "top-right": "-rotate-135",
 };
 
-function ArrowIcon({ direction, size = 32 }: ArrowIconProps) {
+function ArrowIcon({ size = 32 }: ArrowIconProps) {
   return (
     <svg
-      className={rotationMap[direction]}
       width={size}
       height={size}
-      viewBox="0 0 32 32"
-      fill="none"
       xmlns="http://www.w3.org/2000/svg"
+      className="h-6 w-6"
+      fill="none"
+      viewBox="0 0 24 24"
+      stroke="currentColor"
+      strokeWidth={1.5}
     >
       <path
-        fillRule="evenodd"
-        clipRule="evenodd"
-        d="M15.101 5.5V23.1094L9.40108 17.4095L8.14807 18.6619L15.9862 26.5L23.852 18.6342L22.5996 17.3817L16.8725 23.1094V5.5H15.101Z"
-        fill="currentColor"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        d="M16 17l-4 4m0 0l-4-4m4 4V3"
       />
     </svg>
   );
