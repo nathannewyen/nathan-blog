@@ -1,4 +1,6 @@
 import * as React from "react";
+import { motion } from "framer-motion";
+import styled from "styled-components";
 
 export interface ArrowIconProps {
   direction: "up" | "right" | "down" | "left" | "top-right";
@@ -14,9 +16,13 @@ export const rotationMap = {
   "top-right": "-rotate-135",
 };
 
+const SVG = styled.svg`
+  transform: translate(200);
+`;
+
 function ArrowIcon({ size = 32 }: ArrowIconProps) {
   return (
-    <svg
+    <SVG
       width={size}
       height={size}
       xmlns="http://www.w3.org/2000/svg"
@@ -31,7 +37,7 @@ function ArrowIcon({ size = 32 }: ArrowIconProps) {
         strokeLinejoin="round"
         d="M16 17l-4 4m0 0l-4-4m4 4V3"
       />
-    </svg>
+    </SVG>
   );
 }
 

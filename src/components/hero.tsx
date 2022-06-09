@@ -2,9 +2,11 @@ import React from "react";
 import { useStaticQuery, graphql } from "gatsby";
 import styled from "styled-components";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
+import { motion } from "framer-motion";
 // Components
 import { Section } from "@styles";
 import { ArrowButton } from "./arrow-button";
+
 const StyledContainer = styled(Section)`
   .hero-content {
     display: grid;
