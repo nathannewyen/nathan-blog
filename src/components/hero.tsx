@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useStaticQuery, graphql } from "gatsby";
 import styled from "styled-components";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
@@ -69,7 +69,22 @@ const Hero = () => {
     }
   `);
 
+  const [isHovered, setHovered] = useState(false);
   const heroesData = data.heroes.edges;
+  const loading = {
+    hidden: { pathLength: 0, opacity: 0 },
+    visible: { pathLength: 1, opacity: 0.1 },
+    draw: () => {
+      return {
+        pathLength: 1,
+        opacity: 1,
+        transition: {
+          pathLength: { type: "spring", duration: 0.5, bounce: 0 },
+          opacity: { duration: 0.01 },
+        },
+      };
+    },
+  };
 
   return (
     <StyledContainer>
@@ -86,10 +101,17 @@ const Hero = () => {
                   dangerouslySetInnerHTML={{ __html: html }}
                 />
                 <button className="hero-button">Read the blog</button>
-                <div className="hero-about">
-                  <ArrowButton />
+                <motion.div
+                  className="hero-about"
+                  onMouseEnter={() => setHovered(true)}
+                  onMouseLeave={() => setHovered(false)}
+                  initial="hidden"
+                  whileHover="draw"
+                  animate="hidden"
+                >
+                  <ArrowButton loading={loading} isHovered={isHovered} />
                   <span className="text">{about}</span>
-                </div>
+                </motion.div>
               </StyledHero>
               <div>
                 <GatsbyImage image={image} alt={title} className="img" />
