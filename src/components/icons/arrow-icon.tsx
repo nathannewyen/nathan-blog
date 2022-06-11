@@ -4,8 +4,9 @@ import { motion } from "framer-motion";
 export interface ArrowIconProps {
   direction: "up" | "right" | "down" | "left" | "top-right";
   size?: number;
-  className?: string;
   isHovered?: boolean;
+  variants: any;
+  [key: string]: any;
 }
 
 export const rotationMap = {
@@ -16,17 +17,16 @@ export const rotationMap = {
   "top-right": "-rotate-135",
 };
 
-function ArrowIcon({ size = 25, isHovered }: ArrowIconProps) {
+const ArrowIcon = ({ size = 25, isHovered, variants }: ArrowIconProps) => {
   return (
     <svg
       width={size}
       height={isHovered ? 32 : size}
       xmlns="http://www.w3.org/2000/svg"
-      className="h-5 w-5"
       viewBox="0 0 20 20"
       fill="currentColor"
-      x={17}
-      y={16}
+      x={variants.down.x}
+      y={variants.down.y}
     >
       <motion.path
         initial={false}
@@ -37,6 +37,6 @@ function ArrowIcon({ size = 25, isHovered }: ArrowIconProps) {
       />
     </svg>
   );
-}
+};
 
 export default ArrowIcon;

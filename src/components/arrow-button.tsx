@@ -1,12 +1,9 @@
 import * as React from "react";
 import { ArrowIcon } from "./icons";
-import { motion, useReducedMotion } from "framer-motion";
+import { motion } from "framer-motion";
 
 const variants = {
-  initial: { x: 0 },
-  hover: { x: 8 },
-  focus: { x: 12 },
-  tap: { x: 24 },
+  down: { x: 17, y: 16 },
 };
 
 const ArrowButton = (props) => {
@@ -32,7 +29,7 @@ const ArrowButton = (props) => {
         cy="30"
         variants={loading}
       />
-      <ArrowIcon isHovered={isHovered} direction="down" />
+      <ArrowIcon isHovered={isHovered} variants={variants} direction="down" />
     </svg>
   );
 };

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import { useStaticQuery, graphql } from "gatsby";
 import styled from "styled-components";
+import { useStaticQuery, graphql } from "gatsby";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import { motion } from "framer-motion";
 // Components
@@ -44,7 +44,7 @@ const Hero = () => {
   const data = useStaticQuery(graphql`
     query {
       heroes: allMarkdownRemark(
-        filter: { fileAbsolutePath: { regex: "/content/" } }
+        filter: { fileAbsolutePath: { regex: "/hero/" } }
         sort: { fields: [frontmatter___date], order: DESC }
       ) {
         edges {
@@ -72,14 +72,15 @@ const Hero = () => {
   const [isHovered, setHovered] = useState(false);
   const heroesData = data.heroes.edges;
   const loading = {
-    hidden: { pathLength: 0, opacity: 0 },
-    visible: { pathLength: 1, opacity: 0.1 },
+    hidden: { pathLength: 0, opacity: 0, rotate: 270 },
+    visible: { pathLength: 1, opacity: 0.1, rotate: 270 },
     draw: () => {
       return {
         pathLength: 1,
         opacity: 1,
+        rotate: 270,
         transition: {
-          pathLength: { type: "spring", duration: 0.5, bounce: 0 },
+          pathLength: { type: "spring", duration: 1, bounce: 0 },
           opacity: { duration: 0.01 },
         },
       };
