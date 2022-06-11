@@ -64,7 +64,7 @@ const Switch = styled.div`
 `;
 
 const ToggleWrapper = styled.div`
-  margin: 0 10px;
+  margin: 10px;
 
   .switch {
     width: 55px;
@@ -120,7 +120,7 @@ const Header = () => {
       <Switch>
         <SunIcon />
         <ToggleWrapper>
-          <div className="switch" data-isOn={isOn} onClick={toggleSwitch}>
+          <div className="switch" data-ison={isOn} onClick={toggleSwitch}>
             <motion.div className="handle" layout transition={spring} />
           </div>
         </ToggleWrapper>
