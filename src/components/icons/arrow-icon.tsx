@@ -1,11 +1,12 @@
 import * as React from "react";
 import { motion } from "framer-motion";
-import styled from "styled-components";
 
 export interface ArrowIconProps {
   direction: "up" | "right" | "down" | "left" | "top-right";
   size?: number;
-  className?: string;
+  isHovered?: boolean;
+  variants: any;
+  [key: string]: any;
 }
 
 export const rotationMap = {
@@ -16,29 +17,26 @@ export const rotationMap = {
   "top-right": "-rotate-135",
 };
 
-const SVG = styled.svg`
-  transform: translate(200);
-`;
-
-function ArrowIcon({ size = 32 }: ArrowIconProps) {
+const ArrowIcon = ({ size = 25, isHovered, variants }: ArrowIconProps) => {
   return (
-    <SVG
+    <svg
       width={size}
-      height={size}
+      height={isHovered ? 32 : size}
       xmlns="http://www.w3.org/2000/svg"
-      className="h-6 w-6"
-      fill="none"
-      viewBox="0 0 24 24"
-      stroke="currentColor"
-      strokeWidth={1.5}
+      viewBox="0 0 20 20"
+      fill="currentColor"
+      x={variants.down.x}
+      y={variants.down.y}
     >
-      <path
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        d="M16 17l-4 4m0 0l-4-4m4 4V3"
+      <motion.path
+        initial={false}
+        animate={{ y: isHovered ? 2 : 0 }}
+        fillRule="evenodd"
+        d="M16.707 10.293a1 1 0 010 1.414l-6 6a1 1 0 01-1.414 0l-6-6a1 1 0 111.414-1.414L9 14.586V3a1 1 0 012 0v11.586l4.293-4.293a1 1 0 011.414 0z"
+        clipRule="evenodd"
       />
-    </SVG>
+    </svg>
   );
-}
+};
 
 export default ArrowIcon;

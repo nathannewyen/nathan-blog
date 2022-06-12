@@ -1,7 +1,7 @@
 import React from "react";
 import { ThemeProvider } from "styled-components";
 import { GlobalStyle, theme } from "@styles";
-import { Header, Hero } from "@components";
+import { Header, Hero, About } from "@components";
 
 const Layout = () => {
   return (
@@ -10,6 +10,7 @@ const Layout = () => {
         <GlobalStyle />
         <Header />
         <Hero />
+        <About />
       </ThemeProvider>
     </div>
   );
