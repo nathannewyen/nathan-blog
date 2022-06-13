@@ -2,7 +2,6 @@ import * as React from "react";
 import { motion } from "framer-motion";
 
 export interface ArrowIconProps {
-  direction: "up" | "right" | "down" | "left" | "top-right";
   size?: number;
   isHovered?: boolean;
   variants: any;

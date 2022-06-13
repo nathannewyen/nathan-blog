@@ -12,6 +12,10 @@ import { ArrowButton } from "@components";
 const StyledContainer = styled(Section)``;
 
 const StyledImage = styled.div`
+  div {
+    margin: 0.3rem 0;
+  }
+
   .img {
     border-radius: 10px;
   }
@@ -60,14 +64,10 @@ const StyledAboutMe = styled.div`
     }
   }
 
-  div {
-    margin: 0.3rem 0;
-  }
-
   .about-button {
     font-size: var(--fz-xxl);
     color: var(--color-white);
-    span {
+    .about-button-text {
       margin-left: 20px;
     }
   }
@@ -84,6 +84,10 @@ const StyledText = styled.div`
   .about-text {
     color: var(--color-blueGray);
     font-size: var(--fz-h2);
+  }
+
+  svg {
+    transform: rotate(270deg);
   }
 `;
 

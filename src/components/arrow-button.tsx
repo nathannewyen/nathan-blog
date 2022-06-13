@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 
 const variants = {
   down: { x: 17, y: 16 },
+  right: { x: 17, y: 17 },
 };
 
 const ArrowButton = (props) => {
@@ -29,7 +30,7 @@ const ArrowButton = (props) => {
         cy="30"
         variants={loading}
       />
-      <ArrowIcon isHovered={isHovered} variants={variants} direction="down" />
+      <ArrowIcon isHovered={isHovered} variants={variants} />
     </svg>
   );
 };
