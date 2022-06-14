@@ -5,16 +5,17 @@ import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import { motion } from "framer-motion";
 // Components
 import { Section } from "@styles";
-import { ArrowButton } from "./arrow-button";
+import { ArrowButton } from "../arrow-button";
 
 const StyledContainer = styled(Section)`
   .hero-content {
-    display: grid;
-    grid-template-columns: 1fr 2fr;
+    display: flex;
+    flex-direction: row;
   }
 `;
 
 const StyledHero = styled.div`
+  width: 600px;
   position: relative;
   color: var(--color-white);
   font-size: var(--fz-title);

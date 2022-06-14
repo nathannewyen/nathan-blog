@@ -1,6 +1,6 @@
 ---
 date: '2022-06-11'
-title: 'Photo of Me'
+title: 'Photo of me'
 cover: '../../src/images/me.png'
 about: 'Hi, I am Nhan T. Nguyen. I help people make the world better through quality software'
 ---

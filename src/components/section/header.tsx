@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { Link } from "gatsby";
 import { motion } from "framer-motion";
 // Icons
-import { SunIcon, MoonIcon } from "./icons";
+import { SunIcon, MoonIcon } from "../icons";
 
 const Head = styled.div`
   display: flex;

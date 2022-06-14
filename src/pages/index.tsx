@@ -1,6 +1,6 @@
 import * as React from "react";
 import styled from "styled-components";
-import { Layout } from "@components";
+import { Layout } from "@/components/section";
 
 const StyledMainContainer = styled.main`
   padding: 80px;
