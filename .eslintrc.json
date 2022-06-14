@@ -2,7 +2,8 @@
     "root": true,
     "env": {
         "browser": true,
-        "es2021": true
+        "es2021": true,
+        "node": true
     },
     "extends": [
         "eslint:recommended",
@@ -24,8 +25,10 @@
         {
           "files": ["*.jsx", "*.tsx"],
           "rules": {
-            "@typescript-eslint/explicit-module-boundary-types": ["off"]
+            "@typescript-eslint/explicit-module-boundary-types": ["off"],
+            "react/prop-types": "off",
+            "@typescript-eslint/no-explicit-any": "off"
           }
         }
-      ]
+      ],
 }

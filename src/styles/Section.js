@@ -4,7 +4,7 @@ import media from "./media";
 const Section = styled.section`
   margin: 0 auto;
   padding: 100px 0;
-  max-width: 1500px;
+  max-width: 1200px;
   ${media.tablet`padding: 100px 0;`};
 `;
 
