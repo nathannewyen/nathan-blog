@@ -21,7 +21,8 @@ const variables = css`
     --fz-lg: 18px;
     --fz-xl: 20px;
     --fz-xxl: 22px;
-    --fz-h2: 24px;
+    --fz-h1: 24px;
+    --fz-h2: 30px;
     --fz-h3: 32px;
     --fz-title: 40px;
   }
