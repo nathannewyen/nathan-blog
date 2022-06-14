@@ -34,4 +34,4 @@ const ArrowButton = (props) => {
   );
 };
 
-export { ArrowButton };
+export default ArrowButton;
