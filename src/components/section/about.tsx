@@ -1,10 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import { useStaticQuery, graphql, Link } from "gatsby";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
+import { motion } from "framer-motion";
+// Components
 import { Section } from "@styles";
 import { socialMedia } from "@config";
 import { Icon } from "@components/icons";
+import { ArrowButton } from "@components";
 
 const StyledContainer = styled(Section)``;
 
@@ -60,6 +63,14 @@ const StyledAboutMe = styled.div`
   div {
     margin: 0.3rem 0;
   }
+
+  .about-button {
+    font-size: var(--fz-xxl);
+    color: var(--color-white);
+    span {
+      margin-left: 20px;
+    }
+  }
 `;
 
 const StyledText = styled.div`
@@ -107,11 +118,26 @@ const AboutMe = () => {
   `);
 
   const aboutsData = data.heroes.edges;
-
   const github = socialMedia[0].url;
+  const [isHovered, setHovered] = useState(false);
+  const loading = {
+    hidden: { pathLength: 0, opacity: 0, rotate: 270 },
+    visible: { pathLength: 1, opacity: 0.1, rotate: 270 },
+    draw: () => {
+      return {
+        pathLength: 1,
+        opacity: 1,
+        rotate: 270,
+        transition: {
+          pathLength: { type: "spring", duration: 1, bounce: 0 },
+          opacity: { duration: 0.01 },
+        },
+      };
+    },
+  };
 
   return (
-    <StyledContainer>
+    <StyledContainer id="about">
       {aboutsData &&
         aboutsData.map(({ node }, i: number) => {
           const { html, frontmatter } = node;
@@ -135,6 +161,21 @@ const AboutMe = () => {
                   className="about-text"
                   dangerouslySetInnerHTML={{ __html: html }}
                 />
+                <motion.div
+                  className="about-button"
+                  onMouseEnter={() => setHovered(true)}
+                  onMouseLeave={() => setHovered(false)}
+                  initial="hidden"
+                  whileHover="draw"
+                  animate="hidden"
+                >
+                  <Link to="/#about">
+                    <ArrowButton loading={loading} isHovered={isHovered} />
+                    <span className="about-button-text">
+                      Learn More About Nhan
+                    </span>
+                  </Link>
+                </motion.div>
               </StyledText>
             </StyledAboutMe>
           );
