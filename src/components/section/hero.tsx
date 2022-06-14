@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import { useStaticQuery, graphql } from "gatsby";
+import { useStaticQuery, graphql, Link } from "gatsby";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import { motion } from "framer-motion";
 // Components
 import { Section } from "@styles";
-import { ArrowButton } from "../arrow-button";
+import { ArrowButton } from "@components";
 
 const StyledContainer = styled(Section)`
   .hero-content {
@@ -23,10 +23,6 @@ const StyledHero = styled.div`
 
   .hero-button {
     ${({ theme }) => theme.mixins.button};
-  }
-
-  .hero-arrow-button {
-    ${({ theme }) => theme.mixins.arrowButton};
   }
 
   .hero-about {
@@ -111,8 +107,10 @@ const Hero = () => {
                   whileHover="draw"
                   animate="hidden"
                 >
-                  <ArrowButton loading={loading} isHovered={isHovered} />
-                  <span className="text">{about}</span>
+                  <Link to="/#about">
+                    <ArrowButton loading={loading} isHovered={isHovered} />
+                    <span className="text">{about}</span>
+                  </Link>
                 </motion.div>
               </StyledHero>
               <div>
